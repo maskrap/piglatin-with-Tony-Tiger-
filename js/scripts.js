@@ -1,46 +1,42 @@
-// business logic
+// take user input
+// put into array
+// split into Words
 
-// play with input
-var pigLatin = function(year) {
-  if ((year % 4 === 0) && (year % 100 !== 0) || (year % 400 === 0)) {
-    return true;
-  } else {
-    return false;
-  }
-};
+// use charat to classifiy with if statement
+// evaluate each words array values using charAt() will need to use a loop.
+// and charAt() per words array index values; use a loop to:
+// evaluate the char to not equal vowel
 
 
-// check for bad input
-var cleanInput = function(input) {
-  if (isNaN(input)) {
-    return true;
-  } else {
-    return false;
+//======================== biz logic ===========================
+var words = [];
+var wordSplit = function(word) {
+  words = word.split(" ");
+  return words;
+}
+
+var piggy = function(wordsArray) {
+  for (var idx = 0; idx < wordsArray.length; idx++) {
+    for (var i = 0; i < wordsArray[idx].length; i++) {
+      console.log(words[idx].charAt(i));
+    };
   };
 };
 
-// user interface logic
+
+
+
+
+
+//======================== user interface logic ===========================
 $(document).ready(function() {
-  $("form#leap-year").submit(function(event) {
+  $("form#piglatin").submit(function(event) {
     event.preventDefault();
-    var year = parseInt($("input#year").val());
-    var result = pigLatin(year);
-    var input = cleanInput(year);
+    var word = $("input#words").val();
+    var wordsArray = wordSplit(word);
 
-    $(".year").text(year);
-
-    if (!input) {
-      $("#result").show();
-    }
-    else {
-      alert("This is not a number");
-    }
-
-    if (!result) {                 // same as writing if (result === false)
-      $(".not").text("not");
-    } else {
-      $(".not").text("");
-    }
+    piggy(wordsArray);
+    console.log(words);
 
 
   });

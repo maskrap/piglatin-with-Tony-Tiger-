@@ -8,16 +8,16 @@
 
 _Pig Latinizer: this program will transform user input into the childrens' language Pig Latin by following the rules listed below._
 
-* _user inputs a word starting with a vowel the word receives 'ay' at end of word_
+* _User inputs a word starting with a vowel the word receives 'ay' at end of word_
   * **Example Input:** office
   * **Example Output:** officeay
-* _words starting with one or more consonants get all of the first consecutive consonants moved to the end, and 'ay' is added._
+* _Words starting with one or more consonants get all of the first consecutive consonants moved to the end, and 'ay' is added._
   * **Example Input:** student
   * **Example Output:** udentstay
-* _If the first consonants include "qu", it moves the "u" along with the "q")_
+* _If the first consonants include "qu", it moves the "u" along with the "q"._
   * **Example Input:** query
   * **Example Output:** eryquay
-* _words that start with "y" treat the "y" as a consonant_
+* _Words that start with "y" treat the "y" as a consonant_
   * **Example Input:** office
   * **Example Output:** officeay
 
