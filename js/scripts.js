@@ -28,6 +28,9 @@ var ifVowel = function(word, i) {
     // console.log('yes');
     return true;
   }
+  else if ((word.charAt(i) + word.charAt(i + 1))==='qu'||(word.charAt(i) + word.charAt(i+1))==='Qu'|| (word.charAt(i) + word.charAt(i + 1))==='QU'||(word.charAt(i) + word.charAt(i + 1))==='qU') {
+    return "Q";
+  }
   else {
     // console.log('no');
     return false;
@@ -42,20 +45,28 @@ var piggy = function(wordsArray) {
     if (ifVowel(wordsArray[idx], 0)) {
       wordsArray.splice(idx, 1, (wordsArray[idx] + 'ay'));
     }
+
+    else if (ifVowel(wordsArray[idx], 0) === "Q") {
+      var cons = wordsArray[idx].slice(0, 2);
+      var rest = wordsArray[idx].slice(1, (wordsArray[idx].length));
+      wordsArray.splice(idx, 1, (rest + cons + 'ay'));
+    }
+
     else if (!ifVowel(wordsArray[idx], 0)) {
       for (var i = 0; i < wordsArray[idx].length; i++) {
 
         if (!ifVowel(wordsArray[idx], i)) {
           consNum += 1;
-          console.log('consNum+1');
+          // console.log('consNum+1');
         }
-        // else if (ifVowel(wordsArray[idx], i)) {
-        //   var cons = wordsArray[idx].slice(0, (consNum -1));
-        //   var rest = wordsArray[idx].slice((consNum -1), (wordsArray[idx].length - 1));
-        //   wordsArray.splice(idx, 1, wordsArray[idx].replace(wordsArray[idx], (rest + cons + 'ay')));
-        //   consNum = 0;
-        //   console.log('change');
-        // }
+        else if (ifVowel(wordsArray[idx], i)) {
+          var cons = wordsArray[idx].slice(0, consNum);
+          var rest = wordsArray[idx].slice(consNum, (wordsArray[idx].length));
+          wordsArray.splice(idx, 1, (wordsArray[idx].replace(wordsArray[idx], (rest + cons + 'ay'))));
+          consNum = 0;
+          // console.log('change');
+          break;
+        }
         // console.log(words[idx].charAt(i));
       };
     }
@@ -74,7 +85,12 @@ $(document).ready(function() {
     var word = $("input#words").val();
     wordsArray = wordSplit(word);
 
+
     piggy(wordsArray);
     // console.log(words);
+
+    var resultout = wordsArray.join(' ');
+    $('#results').text(resultout);
+    $('#result').show();
   });
 });

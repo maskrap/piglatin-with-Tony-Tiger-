@@ -20,8 +20,9 @@ _Pig Latinizer: this program will transform user input into the childrens' langu
 * _Words that start with "y" treat the "y" as a consonant_
   * **Example Input:** yes
   * **Example Output:** esyay
-
-
+* _Capitalization carries over_
+  * **Example Input:** Hello
+  * **Example Output:** elloHay
 ## Support and contact details
 
 _Contact tfabery (at) gmail (dot) com or alexd (dot) jacks (at) gmail (dot) com with questions regarding this software. Check out some of these resources to understand the technologies._
