@@ -42,14 +42,14 @@ var ifVowel = function(word, i) {
 
 var piggy = function(wordsArray) {
   for (var idx = 0; idx < wordsArray.length; idx++) {
-    if (ifVowel(wordsArray[idx], 0)) {
-      wordsArray.splice(idx, 1, (wordsArray[idx] + 'ay'));
-    }
-
-    else if (ifVowel(wordsArray[idx], 0) === "Q") {
+    if (ifVowel(wordsArray[idx], 0) === "Q") {
       var cons = wordsArray[idx].slice(0, 2);
       var rest = wordsArray[idx].slice(1, (wordsArray[idx].length));
       wordsArray.splice(idx, 1, (rest + cons + 'ay'));
+    }
+
+    else if (ifVowel(wordsArray[idx], 0)) {
+      wordsArray.splice(idx, 1, (wordsArray[idx] + 'ay'));
     }
 
     else if (!ifVowel(wordsArray[idx], 0)) {
@@ -62,7 +62,7 @@ var piggy = function(wordsArray) {
         else if (ifVowel(wordsArray[idx], i)) {
           var cons = wordsArray[idx].slice(0, consNum);
           var rest = wordsArray[idx].slice(consNum, (wordsArray[idx].length));
-          wordsArray.splice(idx, 1, (wordsArray[idx].replace(wordsArray[idx], (rest + cons + 'ay'))));
+          wordsArray.splice(idx, 1, (rest + cons + 'ay'));
           consNum = 0;
           // console.log('change');
           break;
