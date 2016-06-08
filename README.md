@@ -18,8 +18,8 @@ _Pig Latinizer: this program will transform user input into the childrens' langu
   * **Example Input:** query
   * **Example Output:** eryquay
 * _Words that start with "y" treat the "y" as a consonant_
-  * **Example Input:** office
-  * **Example Output:** officeay
+  * **Example Input:** yes
+  * **Example Output:** esyay
 
 
 ## Support and contact details
