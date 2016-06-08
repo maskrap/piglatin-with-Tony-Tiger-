@@ -21,35 +21,42 @@ var wordSplit = function(word) {
   return words;
 }
 
-//
-// var ifVowel = function(word) {
-//   vowels.forEach(function(vowel) {
-//     if (vowel === word.charAt(0)) {
-//       console.log('yes');
-//       return true;
-//       break;
-//     }
-//     else {
-//       console.log('no');
-//       return false;
-//     }
-//   });
-// };
+
+var ifVowel = function(word, i) {
+  if (word.charAt(i) === 'a'||word.charAt(i) === "A"||word.charAt(i) === "e"||word.charAt(i) === "E"||word.charAt(i) === "i"||word.charAt(i) === "I"||word.charAt(i) === "o"||word.charAt(i) === "O"||word.charAt(i) === "u"||word.charAt(i) === "U") {
+    // console.log('yes');
+    return true;
+  }
+  else {
+    // console.log('no');
+    return false;
+  }
+};
 
 //
 //
 
 var piggy = function(wordsArray) {
   for (var idx = 0; idx < wordsArray.length; idx++) {
-    if (wordsArray[idx].charAt(0) === 'a'||wordsArray[idx].charAt(idx - idx) === "A"||wordsArray[idx].charAt(idx - idx) === "e"||wordsArray[idx].charAt(idx - idx) === "E"||wordsArray[idx].charAt(0) === "i"||wordsArray[idx].charAt(0) === "I"||wordsArray[idx].charAt(0) === "o"||wordsArray[idx].charAt(0) === "O"||wordsArray[idx].charAt(0) === "u"||wordsArray[idx].charAt(0) === "U") {
+    if (ifVowel(wordsArray[idx], 0)) {
       wordsArray.splice(idx, 1, (wordsArray[idx] + 'ay'));
+    } else if (!ifVowel(wordsArray[idx], 0)) {
+      for (var i = 0; i < wordsArray[idx].length; i++) {
+        var consNum = 0;
+        if (!ifVowel(wordsArray[idx], i)) {
+          consNum += 1;
+          console.log('consNum+1');
+        }
+        else if (ifVowel(wordsArray[idx], i)) {
+          var cons = wordsArray[idx].slice(0, (consNum -1));
+          var rest = wordsArray[idx].slice((consNum -1), (wordsArray[idx].length - 1));
+          wordsArray.splice(idx, 1, wordsArray[idx].replace(wordsArray[idx], (rest + cons + 'ay')));
+          consNum = 0;
+          console.log('change');
+        }
+        // console.log(words[idx].charAt(i));
+      };
     }
-
-
-    // for (var i = 0; i < wordsArray[idx].length; i++) {
-    //
-    //   console.log(words[idx].charAt(i));
-    // };
   };
 };
 
