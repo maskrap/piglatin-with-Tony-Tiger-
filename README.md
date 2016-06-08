@@ -12,6 +12,10 @@ _BDD: this program will handle..._
 * _a year that is divisible by 4: returns true_
 * _a year that is divisible by 100: returns false_
 * _a year that is divisible by 400: returns true_
+* _year field is required_
+* _alert user if the input is not a number_
+* _Input is limited to 4 characters_
+
 
 ## Support and contact details
 
