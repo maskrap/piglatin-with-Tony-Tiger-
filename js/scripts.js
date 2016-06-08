@@ -1,5 +1,7 @@
 // business logic
-var leapYear = function(year) {
+
+// play with input
+var pigLatin = function(year) {
   if ((year % 4 === 0) && (year % 100 !== 0) || (year % 400 === 0)) {
     return true;
   } else {
@@ -7,7 +9,9 @@ var leapYear = function(year) {
   }
 };
 
-var badInput = function(input) {
+
+// check for bad input
+var cleanInput = function(input) {
   if (isNaN(input)) {
     return true;
   } else {
@@ -20,8 +24,8 @@ $(document).ready(function() {
   $("form#leap-year").submit(function(event) {
     event.preventDefault();
     var year = parseInt($("input#year").val());
-    var result = leapYear(year);
-    var input = badInput(year);
+    var result = pigLatin(year);
+    var input = cleanInput(year);
 
     $(".year").text(year);
 
