@@ -55,18 +55,27 @@ var piggy = function(wordsArray) {
     else if (!ifVowel(wordsArray[idx], 0)) {
       for (var i = 0; i < wordsArray[idx].length; i++) {
 
-        if (!ifVowel(wordsArray[idx], i)) {
+        if (consNum === (wordsArray[idx].length - 1)) {
+          var cons1 = wordsArray[idx].slice(0, consNum);
+          var rest1 = wordsArray[idx].slice(consNum, ((wordsArray[idx].length) - 1));
+          wordsArray.splice(idx, 1, (rest1 + cons1 + 'ay'));
+          consNum = 0;
+          // console.log('change');
+        }
+        else if (!ifVowel(wordsArray[idx], i)) {
           consNum += 1;
           // console.log('consNum+1');
         }
+
         else if (ifVowel(wordsArray[idx], i)) {
-          var cons = wordsArray[idx].slice(0, consNum);
-          var rest = wordsArray[idx].slice(consNum, (wordsArray[idx].length));
-          wordsArray.splice(idx, 1, (rest + cons + 'ay'));
+          var cons2 = wordsArray[idx].slice(0, consNum);
+          var rest2 = wordsArray[idx].slice(consNum, (wordsArray[idx].length));
+          wordsArray.splice(idx, 1, (rest2 + cons2 + 'ay'));
           consNum = 0;
           // console.log('change');
           break;
         }
+
         // console.log(words[idx].charAt(i));
       };
     }
